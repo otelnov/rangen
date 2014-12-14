@@ -1,0 +1,25 @@
+{
+  "name": "rangen",
+  "version": "0.0.1",
+  "description": "Node.js module to generate random data.",
+  "main": "rangen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/otelnov/rangen.git"
+  },
+  "keywords": [
+    "generate",
+    "random",
+    "shortid",
+    "data"
+  ],
+  "author": "Oleksandr Telnov <mail@telnov.com> (http://telnov.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/otelnov/rangen/issues"
+  },
+  "homepage": "https://github.com/otelnov/rangen"
+}
