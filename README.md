@@ -173,6 +173,7 @@ The following optional parameters can be passed:
 
 ```javascript
 var params = {
+  key: 'your_key', // 500px consumer_key
   image_size: 600, // Image size. Default - 2
   rpp: 2, // Number of images. Default - 20
   feature: 'highest_rated', // Photo stream to be retrieved. Default - 'popular'
