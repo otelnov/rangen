@@ -1,5 +1,5 @@
 /**
- * rangen.js 0.0.2
+ * rangen.js 0.1.0
  * https://github.com/otelnov/rangen
  * RanGen may be freely distributed under the MIT license.
  */
@@ -68,34 +68,34 @@
     var url = 'http://api.randomuser.me/';
     var sep = '?';
 
-    if (typeof params === 'function') {
-      cb = params;
-    }
-
     if (typeof params === 'number') {
       params = {count: params};
     }
 
-    if (params.count) {
+    if (params && params.count) {
       sep = '&';
       url += '?results=' + params.count;
     }
 
-    if (params.gender) {
+    if (params && params.gender) {
       url += sep + 'gender=' + params.gender;
     }
 
-    if (params.promise === true) {
-      return axios.get(url);
+    if (typeof params === 'function') {
+      cb = params;
     }
 
-    axios.get(url)
-      .then(function (response) {
-        cb(null, response.data.results)
-      })
-      .catch(function (response) {
-        cb(response);
-      });
+    if (typeof cb === 'function') {
+      axios.get(url)
+        .then(function (response) {
+          cb(null, response.data.results)
+        })
+        .catch(function (response) {
+          cb(response);
+        });
+    } else {
+      return axios.get(url);
+    }
   };
 
   /**
@@ -105,38 +105,39 @@
    * @param {Function} [callback]
    */
   this.image = function (params, cb) {
-    if (typeof params === 'function') {
-      cb = params;
-    }
-
-    var url = 'https://api.500px.com/v1/photos?consumer_key=CCDtzPT3O0irMsPJ7DeX6YJCW1sd7P34c2upNUUJ';
+    var key = params && params.key || 'ggx6QR2s9jYb5CuPIy2Mwg9wuwvbNYjxeworIqqP';
+    var url = 'https://api.500px.com/v1/photos?consumer_key=' + key;
 
     if (typeof params === 'object') {
       for (var index in params) {
-        if (params.hasOwnProperty(index)) {
+        if (params.hasOwnProperty(index) && index != 'key') {
           url += '&' + index + '=' + params[index]
         }
       }
     }
 
-    if (params.promise === true) {
-      return axios.get(url);
+    if (typeof params === 'function') {
+      cb = params;
     }
 
-    axios.get(url)
-      .then(function (response) {
-        cb(null, response.data.photos)
-      })
-      .catch(function (response) {
-        cb(response);
-      });
+    if (typeof cb === 'function') {
+      axios.get(url)
+        .then(function (response) {
+          cb(null, response.data.photos)
+        })
+        .catch(function (response) {
+          cb(response);
+        });
+    } else {
+      return axios.get(url);
+    }
   };
 
   /**
    * ****************todo:**********************
    */
 
-  // Start wars api http://swapi.co/
+  // Star wars api http://swapi.co/
 
   /**
    * get random tweet
@@ -144,9 +145,9 @@
    * @param {{number|object}} count or params
    * @param {Function} [callback]
    */
-  this.tweet = function () {
-    return '';
-  };
+  //this.tweet = function () {
+  //  return '';
+  //};
 
   /**
    * get random youtube video
@@ -154,9 +155,9 @@
    * @param {{number|object}} count or params
    * @param {Function} [callback]
    */
-  this.video = function () {
-    return '';
-  };
+  //this.video = function () {
+  //  return '';
+  //};
 
   /**
    * get random text
@@ -164,8 +165,8 @@
    * @param {{number|object}} count or params
    * @param {Function} [callback]
    */
-  this.text = function () {
-    return '';
-  };
+  //this.text = function () {
+  //  return '';
+  //};
 
 }.call(this));

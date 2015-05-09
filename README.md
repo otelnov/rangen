@@ -67,7 +67,7 @@ var num = rg.num(min, max); //864
 ### user
 Generate random user data using https://randomuser.me
 ```javascript
-rangen.user(params, cb);
+rg.user(params, cb);
 ```
 
 Can take a callback:
@@ -81,7 +81,7 @@ rg.user(function(err, user){
 
 Or return promise:
 ```javascript
-rg.user({promise: true})
+rg.user()
   .then(function (response) {
     console.log(response)
   })
@@ -94,10 +94,14 @@ The following parameters can be passed:
 
 ```javascript
 var params = {
-  promise: true, // return promise. Default - false. 
   count: 5, // number of users that should be generated (1 - 100). Default - 1
   gender: 'male' // gender of users ('male', 'female'). Random by default. 
 }
+```
+
+First argument can be an integer, if you need to pass count only
+```javascript
+rg.user(5, cb);
 ```
 
 Results:
@@ -156,7 +160,7 @@ rg.image(function(err, images){
 
 Or return promise:
 ```javascript
-rg.image({promise: true})
+rg.image()
   .then(function (response) {
     console.log(response)
   })
@@ -169,7 +173,6 @@ The following optional parameters can be passed:
 
 ```javascript
 var params = {
-  promise: true, // Return promise. Default - false.
   image_size: 600, // Image size. Default - 2
   rpp: 2, // Number of images. Default - 20
   feature: 'highest_rated', // Photo stream to be retrieved. Default - 'popular'
@@ -178,7 +181,7 @@ var params = {
 }
 ```
 
-Params can take standart 500px parameters. Check [500px API](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos.md) for more details.
+Params can take native 500px parameters. Check [500px API](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos.md) for more details.
 
 Results:
 
