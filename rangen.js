@@ -1,5 +1,5 @@
 /**
- * rangen.js 0.1.0
+ * rangen.js 0.1.1
  * https://github.com/otelnov/rangen
  * RanGen may be freely distributed under the MIT license.
  */
