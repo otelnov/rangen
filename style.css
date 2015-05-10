@@ -21,6 +21,7 @@ body {
 
 .username {
   font-size: 22px;
+  text-transform: capitalize;
 }
 
 .contacts {
@@ -38,4 +39,12 @@ body {
 
 .imageBlock {
   text-align: center;
+}
+
+.link{
+  float: left;
+}
+
+.twitter{
+  float: right;
 }
