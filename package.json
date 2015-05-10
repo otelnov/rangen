@@ -1,6 +1,6 @@
 {
   "name": "rangen",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Node.js module to generate random data.",
   "main": "rangen.js",
   "scripts": {
