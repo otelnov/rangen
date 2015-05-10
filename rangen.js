@@ -1,5 +1,5 @@
 /**
- * rangen.js 0.1.1
+ * rangen.js 0.1.2
  * https://github.com/otelnov/rangen
  * RanGen may be freely distributed under the MIT license.
  */
@@ -134,6 +134,36 @@
   };
 
   /**
+   * lorem ipsum
+   *
+   * @param {number} count of paragraphs
+   * @param {Function} [callback]
+   */
+  this.lorem = function (count, cb) {
+
+    var num = count;
+
+    if (typeof count === 'function') {
+      cb = count;
+      num = 1;
+    }
+
+    var url = 'http://baconipsum.com/api/?type=meat-and-filler&paras=' + num;
+
+    if (typeof cb === 'function') {
+      axios.get(url)
+        .then(function (response) {
+          cb(null, response.data)
+        })
+        .catch(function (response) {
+          cb(response);
+        });
+    } else {
+      return axios.get(url);
+    }
+  };
+
+  /**
    * ****************todo:**********************
    */
 
@@ -160,7 +190,7 @@
   //};
 
   /**
-   * get random text
+   * get random text, word..
    *
    * @param {{number|object}} count or params
    * @param {Function} [callback]

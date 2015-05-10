@@ -254,8 +254,52 @@ Results:
 }, ...]
 ```
 
+
+
+
+
+### lorem ipsum
+Generate lorem ipsum text.
+Number of paragraphs can be set as first argument.
+
+```javascript
+rg.lorem(count, cb);
+```
+| param  | default value |
+| :------: | :--------------: |
+| _count_ (optional) | 1 |
+| _cb_ (optional) |  |
+
+
+Can take a callback:
+```javascript
+rg.lorem(function(err, text){
+  if(!err){
+    console.log(text);
+  }
+});
+```
+
+Or return promise:
+```javascript
+rg.lorem()
+  .then(function (response) {
+    console.log(response)
+  })
+  .catch(function (response) {
+    console.log(response)
+  });
+```
+
+Results:
+```javascript
+["Irure tempor shankle turducken.  Aliqua laboris est, cow in short ribs leberkas pork chop meatloaf deserunt porchetta cupidatat strip steak fatback.  Ribeye prosciutto andouille, pariatur dolore sausage ut doner aliquip nostrud rump occaecat shank.  Ipsum laborum hamburger turducken."]
+```
+
 ## Todo:
 
-### Random text fragments
+### Random text fragments, sentence, word...
+
+### Random football team, player, national team
 
 ### Random youtube video
