@@ -1,0 +1,41 @@
+body {
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  color: #333;
+}
+
+.main {
+  width: 940px;
+  background: #eee;
+  margin: 0 auto;
+  padding: 50px;
+  text-align: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+}
+
+.username{
+  font-size: 22px;
+}
+
+.contacts{
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.content{
+  text-align: left;
+}
+
+.articleId{
+  font-size: 12px;
+}
+
+.imageBlock{
+  text-align: center;
+}
