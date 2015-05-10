@@ -1,7 +1,11 @@
 var rg = require('./rangen');
 
-rg.image({rpp: 1, image_size: 600}, function (err, image) {
-	imgSrc('image', image[0].image_url);
+rg.image({
+	rpp: 10,
+	image_size: 600,
+	page: rg.num(1, 200)
+}, function (err, image) {
+	imgSrc('image', image[rg.num(0, 9)].image_url);
 });
 
 rg.user({count: 1}, function (err, res) {

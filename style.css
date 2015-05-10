@@ -15,27 +15,27 @@ body {
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
 }
 
-.username{
+.username {
   font-size: 22px;
 }
 
-.contacts{
+.contacts {
   font-size: 14px;
   margin-top: -10px;
 }
 
-.content{
+.content {
   text-align: left;
 }
 
-.articleId{
+.articleId {
   font-size: 12px;
 }
 
-.imageBlock{
+.imageBlock {
   text-align: center;
 }
