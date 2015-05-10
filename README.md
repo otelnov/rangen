@@ -1,5 +1,9 @@
 # RanGen - module to generate different type of data.
 
+## demo
+
+http://otelnov.github.io/rangen/
+
 ## install
 ```
 $ npm install --save rangen
