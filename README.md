@@ -2,7 +2,7 @@
 
 ## demo
 
-http://otelnov.github.io/rangen/
+[http://otelnov.github.io/rangen/](http://otelnov.github.io/rangen/)
 
 ## install
 ```
