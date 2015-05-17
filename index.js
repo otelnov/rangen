@@ -8,9 +8,9 @@ rg.image({
 	imgSrc('image', image[rg.num(0, 9)].image_url);
 });
 
-imgSrc('thumb1', rg.thumb(150, 150, 'lightgreen'));
-imgSrc('thumb2', rg.thumb(150, 200, 'lightblue'));
-imgSrc('thumb3', rg.thumb(300, 150, 'lightpink'));
+imgSrc('thumb1', rg.thumb(rg.num(100, 300), rg.num(100, 300), 'lightgreen'));
+imgSrc('thumb2', rg.thumb(rg.num(100, 300), rg.num(100, 300), 'lightblue'));
+imgSrc('thumb3', rg.thumb(rg.num(100, 300), rg.num(100, 300), 'lightpink'));
 
 rg.user({count: 1}, function (err, res) {
 	var user = res[0].user;
