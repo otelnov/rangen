@@ -11,7 +11,7 @@ RanGen - module to generate different type of data.
 * [get random user from randomuser.me](https://github.com/otelnov/rangen#user)
 * [get images from 500px](https://github.com/otelnov/rangen#image)
 * [generate lorem ipsum](https://github.com/otelnov/rangen#lorem-ipsum)
-* [create custom thumbnails](https://github.com/otelnov/rangen#thumbnails)
+* [create custom thumbnails](https://github.com/otelnov/rangen#thumbnails-browser-only)
 
 ## Demo
 
