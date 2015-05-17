@@ -1,4 +1,4 @@
-var rg = require('./rangen');
+var rg = rangen;
 
 rg.image({
 	rpp: 10,
@@ -8,6 +8,10 @@ rg.image({
 	imgSrc('image', image[rg.num(0, 9)].image_url);
 });
 
+imgSrc('thumb1', rg.thumb(150, 150, 'lightgreen'));
+imgSrc('thumb2', rg.thumb(150, 200, 'lightblue'));
+imgSrc('thumb3', rg.thumb(300, 150, 'lightpink'));
+
 rg.user({count: 1}, function (err, res) {
 	var user = res[0].user;
 	imgSrc('avatar', user.picture.medium);
@@ -16,10 +20,11 @@ rg.user({count: 1}, function (err, res) {
 	appendData('email', user.email);
 });
 
-rg.lorem(3, function (err, text) {
+rg.lorem(4, function (err, text) {
 	appendData('lorem1', text[0]);
 	appendData('lorem2', text[1]);
 	appendData('lorem3', text[2]);
+	appendData('lorem4', text[3]);
 });
 
 appendData('id', rg.id());
