@@ -1,7 +1,7 @@
 {
   "name": "rangen",
   "main": "rangen.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/otelnov/rangen",
   "authors": [
     "otelnov <otelnov@gmail.com>"
@@ -22,7 +22,11 @@
     "random id",
     "otelnov",
     "lorem ipsum",
-    "random text"
+    "random text",
+    "thumb",
+    "thumbs",
+    "thumbnails",
+    "thumbnail"
   ],
   "license": "MIT",
   "ignore": [

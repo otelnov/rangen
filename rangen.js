@@ -1,5 +1,5 @@
 /**
- * rangen.js 0.2.0
+ * rangen.js 0.2.1
  * https://github.com/otelnov/rangen
  * RanGen may be freely distributed under the MIT license.
  */
@@ -186,19 +186,53 @@
   };
 
   /**
-   * ****************todo:**********************
-   */
-
-  /**
    * generate thumbs
    *
-   * @param {{object}} params
-   * @param {Function} [callback]
-   *
+   * @param {number} width
+   * @param {number} height
+   * @param {string} background
+   * @param {string} color
+   * @returns {string}
    */
-  //exports.thumb = function () {
-  //  return '';
-  //};
+  exports.thumb = function (w, h, bg, color) {
+    w = w || 100;
+    h = h || 100;
+    bg = bg || '#eee';
+    color = color || '#555';
+    var canvas;
+
+    if (typeof document === 'undefined') {
+      return 'thumb() works only in browser';
+    } else {
+      canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+    }
+
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.strokeStyle = color;
+    ctx.strokeRect(0, 0, w, h);
+
+    ctx.fillStyle = color;
+    var fontSize = h < w ? h / 4 : w / 4;
+    ctx.font = fontSize + 'px san-serif';
+    var text = w + 'x' + h;
+    var textWidth = ctx.measureText(text).width;
+    var tw = (w / 2) - (textWidth / 2);
+    var th = (h / 2) + (fontSize / 3 );
+    ctx.fillText(text, tw, th);
+
+    var base64 = canvas.toDataURL('image/png');
+    return base64;
+  };
+
+  /**
+   * ****************todo:**********************
+   */
 
   // Star wars api http://swapi.co/
 
