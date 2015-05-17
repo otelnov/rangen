@@ -1,0 +1,35 @@
+{
+  "name": "rangen",
+  "main": "rangen.js",
+  "version": "0.2.0",
+  "homepage": "https://github.com/otelnov/rangen",
+  "authors": [
+    "otelnov <otelnov@gmail.com>"
+  ],
+  "description": "js module to generate random data",
+  "keywords": [
+    "generate",
+    "random",
+    "shortid",
+    "data",
+    "random user",
+    "random image",
+    "500px",
+    "randomuser",
+    "id",
+    "password",
+    "random number",
+    "random id",
+    "otelnov",
+    "lorem ipsum",
+    "random text"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower.json",
+    "package.json",
+    "README.md"
+  ]
+}
