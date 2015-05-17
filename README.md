@@ -1,21 +1,57 @@
-# RanGen - module to generate different type of data.
+#rangen
 
-## demo
+[![npm version](https://badge.fury.io/js/rangen.svg)](http://badge.fury.io/js/rangen)
+
+RanGen - module to generate different type of data.
+
+## Features
+
+* generate random id
+* generate random number
+* get random user from randomuser.me
+* get images from 500px
+* generate lorem ipsum
+
+## Demo
 
 [http://otelnov.github.io/rangen/](http://otelnov.github.io/rangen/)
 
-## install
+## Installing
+
+Using npm:
 ```
-$ npm install --save rangen
+$ npm install rangen
 ```
 
-## usage
+Using bower:
+```
+$ bower install rangen
+```
+
+## Usage
+Node.js (browserify, webpack, etc...):
 ```javascript
 var rg = require('rangen');
 rg.id(); // RhyDMHO
 ```
+Browser:
+```html
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>rangen</title>
+    <script src="bower_components/rangen/rangen.js"></script>
+  </head>
+  <body>
+    <script>
+      alert(rangen.id());
+    </script>  
+  </body>
+</html>
 
-## methods
+```
+## Methods
 
 
 
@@ -301,6 +337,8 @@ Results:
 ```
 
 ## Todo:
+
+### Generate thumbnails
 
 ### Random text fragments, sentence, word...
 
