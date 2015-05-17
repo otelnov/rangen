@@ -1,17 +1,58 @@
-# RanGen - module to generate different type of data.
+#rangen
 
-## install
+[![npm version](https://badge.fury.io/js/rangen.svg)](http://badge.fury.io/js/rangen)
+
+RanGen - module to generate different type of data.
+
+## Features
+
+* [generate random id](https://github.com/otelnov/rangen#id)
+* [generate random number](https://github.com/otelnov/rangen#number)
+* [get random user from randomuser.me](https://github.com/otelnov/rangen#user)
+* [get images from 500px](https://github.com/otelnov/rangen#image)
+* [generate lorem ipsum](https://github.com/otelnov/rangen#lorem-ipsum)
+* [create custom thumbnails](https://github.com/otelnov/rangen#thumbnails)
+
+## Demo
+
+[http://otelnov.github.io/rangen/](http://otelnov.github.io/rangen/)
+
+## Installing
+
+Using npm:
 ```
-$ npm install --save rangen
+$ npm install rangen
 ```
 
-## usage
+Using bower:
+```
+$ bower install rangen
+```
+
+## Usage
+Node.js (browserify, webpack, etc...):
 ```javascript
 var rg = require('rangen');
 rg.id(); // RhyDMHO
 ```
+Browser:
+```html
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>rangen</title>
+    <script src="bower_components/rangen/rangen.js"></script>
+  </head>
+  <body>
+    <script>
+      alert(rangen.id());
+    </script>  
+  </body>
+</html>
 
-## methods
+```
+## Methods
 
 
 
@@ -296,10 +337,31 @@ Results:
 ["Irure tempor shankle turducken.  Aliqua laboris est, cow in short ribs leberkas pork chop meatloaf deserunt porchetta cupidatat strip steak fatback.  Ribeye prosciutto andouille, pariatur dolore sausage ut doner aliquip nostrud rump occaecat shank.  Ipsum laborum hamburger turducken."]
 ```
 
+
+
+
+
+### thumbnails (browser only)
+Create thumbnails with specific size and color. 
+```javascript
+var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff'); // data:image/png;base64,iVBORw0KGgo.....
+```
+![](https://dl.dropboxusercontent.com/u/17828362/200x150.png)
+
+| param  | default value |
+| :------: | :--------------: |
+| _width_ (optional) | 100  |
+| _height_ (optional) | 100 |
+| _background-color_ (optional) | #eee |
+| _color_ (optional) | #555 |
+
+
+
+
+
 ## Todo:
 
-### Random text fragments, sentence, word...
-
-### Random football team, player, national team
-
-### Random youtube video
+* Thumbnails - node.js support
+* Random text fragments, sentence, word...
+* Random football team, player, national team
+* Random youtube video
