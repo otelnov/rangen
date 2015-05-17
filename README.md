@@ -361,6 +361,7 @@ var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff'); // data:image/png;base64,i
 
 ## Todo:
 
+* Random color
 * Thumbnails - node.js support
 * Random text fragments, sentence, word...
 * Random football team, player, national team
