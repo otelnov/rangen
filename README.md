@@ -1,6 +1,7 @@
 #rangen
 
 [![npm version](https://badge.fury.io/js/rangen.svg)](http://badge.fury.io/js/rangen)
+[![Bower version](https://badge.fury.io/bo/rangen.svg)](http://badge.fury.io/bo/rangen)
 
 RanGen - module to generate different type of data.
 
@@ -360,6 +361,9 @@ var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff'); // data:image/png;base64,i
 
 
 ## Todo:
+
+* Code coverage
+* Minified version
 
 * Random color
 * Thumbnails - node.js support
