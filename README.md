@@ -364,7 +364,6 @@ var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff'); // data:image/png;base64,i
 
 * Code coverage
 * Minified version
-
 * Random color
 * Thumbnails - node.js support
 * Random text fragments, sentence, word...
