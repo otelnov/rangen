@@ -364,8 +364,8 @@ var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff'); // data:image/png;base64,i
 
 * Code coverage
 * Minified version
-* Random color
-* Thumbnails - node.js support
-* Random text fragments, sentence, word...
-* Random football team, player, national team
+* Random color - rgb, hex
+* Thumbnails - node.js support, custom text
+* Lorem ipsum - remove 3rd party service, random text fragments, sentence, word
+* Random data sets - football team, player, national team 
 * Random youtube video
