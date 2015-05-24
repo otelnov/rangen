@@ -7,12 +7,12 @@ RanGen - module to generate different type of data.
 
 ## Features
 
-* [generate random id](https://github.com/otelnov/rangen#id)
-* [generate random number](https://github.com/otelnov/rangen#number)
-* [get random user from randomuser.me](https://github.com/otelnov/rangen#user)
-* [get images from 500px](https://github.com/otelnov/rangen#image)
-* [generate lorem ipsum](https://github.com/otelnov/rangen#lorem-ipsum)
-* [create custom thumbnails](https://github.com/otelnov/rangen#thumbnails-browser-only)
+* [Generate random id](https://github.com/otelnov/rangen#id)
+* [Generate random number](https://github.com/otelnov/rangen#number)
+* [Get random user from randomuser.me](https://github.com/otelnov/rangen#user)
+* [Get images from 500px](https://github.com/otelnov/rangen#image)
+* [Generate lorem ipsum](https://github.com/otelnov/rangen#lorem-ipsum)
+* [Create custom thumbnails](https://github.com/otelnov/rangen#thumbnails-browser-only)
 
 ## Demo
 
@@ -343,11 +343,25 @@ Results:
 
 
 ### thumbnails (browser only)
-Create thumbnails with specific size and color. 
+Create thumbnails with specific size, color and text. 
 ```javascript
-var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff'); // data:image/png;base64,iVBORw0KGgo.....
+//via arguments
+var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff', 'logo', 30); // data:image/png;base64,iVBORw0KGgo.....
+//via object
+var imgSrc = rg.thumb({
+  width: 300,
+  height: 200,
+  background: '#000',
+  color: '#f5f5f5',
+  text: 'Hello rangen',
+  size: 22
+});
+// defaults
+var imgSrc = rg.thumb();
 ```
-![](https://dl.dropboxusercontent.com/u/17828362/200x150.png)
+![](https://dl.dropboxusercontent.com/u/17828362/logo.png)
+![](https://dl.dropboxusercontent.com/u/17828362/hello_rangen.png)
+![](https://dl.dropboxusercontent.com/u/17828362/default.png)
 
 | param  | default value |
 | :------: | :--------------: |
@@ -355,6 +369,8 @@ var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff'); // data:image/png;base64,i
 | _height_ (optional) | 100 |
 | _background-color_ (optional) | #eee |
 | _color_ (optional) | #555 |
+| _text_ (optional) | {width}x{height} |
+| _size_ (optional) | depend on block size |
 
 
 
