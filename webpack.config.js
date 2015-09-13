@@ -4,7 +4,6 @@ var fs = require('fs');
 
 var config = {
   context: path.join(__dirname, '/lib'),
-  //devtool: 'source-map',
 
   entry: {
     rangen: './rangen.js'

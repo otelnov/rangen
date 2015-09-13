@@ -48,7 +48,7 @@ Browser:
   <body>
     <script>
       alert(rangen.id());
-    </script>  
+    </script>
   </body>
 </html>
 
@@ -61,7 +61,7 @@ Browser:
 
 
 ### id
-Generate random string, using one of the character set listed below. Own set can be also provided as third parameter. 
+Generate random string, using one of the character set listed below. Own set can be also provided as third parameter.
 
 ```javascript
 var id = rg.id(length, charset, string); //W6hOC2N
@@ -90,7 +90,7 @@ Character sets:
 
 
 ### number
-Generate random number in specific range. 
+Generate random number in specific range.
 ```javascript
 var num = rg.num(min, max); //864
 ```
@@ -137,7 +137,7 @@ The following parameters can be passed:
 ```javascript
 var params = {
   count: 5, // number of users that should be generated (1 - 100). Default - 1
-  gender: 'male' // gender of users ('male', 'female'). Random by default. 
+  gender: 'male' // gender of users ('male', 'female'). Random by default.
 }
 ```
 
@@ -220,7 +220,7 @@ var params = {
   rpp: 2, // Number of images. Default - 20
   feature: 'highest_rated', // Photo stream to be retrieved. Default - 'popular'
   only: 'Animals' // Name of the category to return photos from
-  // ... 
+  // ...
 }
 ```
 
@@ -300,11 +300,12 @@ Results:
 
 
 
-### lorem ipsum
+### lorem ipsum (text)
 Generate lorem ipsum text.
-Number of paragraphs can be set as first argument.
+Number of sentences can be set as first argument.
 
 ```javascript
+rg.text(count, cb);
 rg.lorem(count, cb);
 ```
 | param  | default value |
@@ -315,8 +316,8 @@ rg.lorem(count, cb);
 
 Can take a callback:
 ```javascript
-rg.lorem(function(err, text){
-  if(!err){
+rg.text(function(err, text){
+  if (!err) {
     console.log(text);
   }
 });
@@ -324,7 +325,7 @@ rg.lorem(function(err, text){
 
 Or return promise:
 ```javascript
-rg.lorem()
+rg.text()
   .then(function (response) {
     console.log(response)
   })
@@ -335,7 +336,7 @@ rg.lorem()
 
 Results:
 ```javascript
-["Irure tempor shankle turducken.  Aliqua laboris est, cow in short ribs leberkas pork chop meatloaf deserunt porchetta cupidatat strip steak fatback.  Ribeye prosciutto andouille, pariatur dolore sausage ut doner aliquip nostrud rump occaecat shank.  Ipsum laborum hamburger turducken."]
+["I give a strangled cry and wake with a start, sweating and shivering at once. Cradling my damaged cheek in my hand, I remind myself that it was not Clove but Thread who gave me this wound. I wish that Peeta were here to hold me, until I remember I'm not supposed to wish, that anymore."]
 ```
 
 
@@ -343,7 +344,7 @@ Results:
 
 
 ### thumbnails (browser only)
-Create thumbnails with specific size, color and text. 
+Create thumbnails with specific size, color and text.
 ```javascript
 //via arguments
 var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff', 'logo', 30); // data:image/png;base64,iVBORw0KGgo.....
@@ -383,5 +384,5 @@ var imgSrc = rg.thumb();
 * Random color - rgb, hex
 * Thumbnails - node.js support, custom text
 * Lorem ipsum - remove 3rd party service, random text fragments, sentence, word
-* Random data sets - football team, player, national team 
+* Random data sets - football team, player, national team
 * Random youtube video
