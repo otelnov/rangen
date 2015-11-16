@@ -1,30 +1,35 @@
-var webpack = require('webpack');
-var path = require('path');
-var fs = require('fs');
+'use strict';
 
-var config = {
+let webpack = require('webpack');
+let path = require('path');
+let fs = require('fs');
+
+let dev = process.env.NODE_ENV === 'development';
+
+let nodeModules = {};
+['axios'].forEach(m => nodeModules[m] = `commonjs ${m}`);
+
+let config = {
   context: path.join(__dirname, '/lib'),
-
   entry: {
     rangen: './rangen.js'
   },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'rangen.js',
+    filename: `rangen.${dev ? '' : 'min.'}js`,
     library: 'rangen',
     libraryTarget: 'umd'
   },
-
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin('rangen', 'rangen.js')
-  ],
-
+  externals: nodeModules,
   module: {
     loaders: [
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015']
+        }
       },
       {
         test: /\.js$/,
@@ -34,15 +39,5 @@ var config = {
     ]
   }
 };
-
-config.plugins.push(function () {
-  this.plugin('done', function () {
-    var data = 'var request;"undefined"!=typeof window?request={get:function(e){return new Promise(function(t,n){var r=new XMLHttpRequest;r.onreadystatechange=function(){r.readyState===XMLHttpRequest.DONE&&(200===r.status&&t({data:JSON.parse(r.responseText)}),n(r.status+" error"))},r.open("GET",e,!0),r.send()})}}:"undefined"!=typeof process&&(request=require("axios"));';
-    fs.appendFile('./dist/rangen.js', data, function (err) {
-      console.log(err);
-      console.log('done');
-    });
-  });
-});
 
 module.exports = config;
