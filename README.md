@@ -104,6 +104,24 @@ var num = rg.num(min, max); //864
 
 
 
+### bool
+Return random boolean value (true/false).
+```javascript
+var bool = rg.bool(); //true
+```
+
+
+
+
+### random
+Get random array element.
+```javascript
+var randomFruit = rg.random(['banana', 'apple', 'orange']); //apple
+```
+
+
+
+
 
 
 ### user
@@ -380,9 +398,5 @@ var imgSrc = rg.thumb();
 ## Todo:
 
 * Code coverage
-* Minified version
 * Random color - rgb, hex
-* Thumbnails - node.js support, custom text
-* Lorem ipsum - remove 3rd party service, random text fragments, sentence, word
-* Random data sets - football team, player, national team
 * Random youtube video
