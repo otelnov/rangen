@@ -2,12 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 
 const ROOT = path.resolve(__dirname, 'src');
-const DESTINATION = path.resolve(__dirname, 'dist');
+const DESTINATION = path.resolve(__dirname, 'build');
 
 const def = {
   context: ROOT,
   entry: {
-    'main': './index.ts'
+    'rangen': './index.ts'
   },
   output: {
     filename: '[name].bundle.js',
@@ -29,12 +29,6 @@ const def = {
         use: 'source-map-loader'
       },
       {
-        enforce: 'pre',
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: 'tslint-loader'
-      },
-      {
         test: /\.ts$/,
         exclude: [/node_modules/],
         use: 'awesome-typescript-loader'
@@ -48,7 +42,7 @@ const def = {
 const umd = {
   context: ROOT,
   entry: {
-    'main': './index.ts'
+    'rangen': './index.ts'
   },
   output: {
     filename: '[name].bundle.umd.js',
@@ -70,12 +64,6 @@ const umd = {
         enforce: 'pre',
         test: /\.js$/,
         use: 'source-map-loader'
-      },
-      {
-        enforce: 'pre',
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: 'tslint-loader'
       },
       {
         test: /\.ts$/,

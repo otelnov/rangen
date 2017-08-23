@@ -1,4 +1,6 @@
-import { id, IIdParams } from './id';
+/* tslint:disable:no-magic-numbers */
+
+import { id, IdParams } from './id';
 
 describe('id', () => {
   it('should return 7-char string using default params', () => {

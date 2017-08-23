@@ -3,7 +3,7 @@ const alphabetic = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const symbols = '_-~!@#$%^&*()|}{?></';
 const dash = '-_';
 
-interface Set {
+export interface Set {
   num: string;
   alpha: string;
   sym: string;

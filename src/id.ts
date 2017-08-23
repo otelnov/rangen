@@ -1,8 +1,10 @@
 import { set } from './helpers/char.set';
 
-export const id = (params?: IIdParams | number): string => {
-  let length: number = 7;
-  let charSet: string = 'alphanum';
+const maxLength = 9999;
+
+export const id = (params?: IdParams | number): string => {
+  let length = 7;
+  let charSet = 'alphanum';
   let str: string = set[charSet];
 
   if (typeof params === 'number') {
@@ -27,7 +29,7 @@ export const id = (params?: IIdParams | number): string => {
     }
   }
 
-  if (length <= 0 || length > 9999) {
+  if (length <= 0 || length > maxLength) {
     throw new Error('Wrong length param, valid length 1 - 9999');
   }
 
@@ -35,10 +37,11 @@ export const id = (params?: IIdParams | number): string => {
   for (let i = 0; i < length; i++) {
     res += str.charAt(Math.floor(Math.random() * str.length));
   }
+
   return res;
 };
 
-export interface IIdParams {
+export interface IdParams {
   length?: number;
   charSet?: string;
   str?: string;

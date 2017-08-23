@@ -1,0 +1,58 @@
+html {
+  background-color: rgb(226, 135, 126);
+}
+
+body {
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  color: #4e4e4e;
+}
+
+.main {
+  width: 940px;
+  background: #fff2f2;
+  margin: 0 auto;
+  padding: 50px;
+  text-align: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+}
+
+.username {
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.contacts {
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.content {
+  text-align: left;
+}
+
+.articleId {
+  font-size: 12px;
+}
+
+.imageBlock {
+  text-align: center;
+}
+
+.image {
+  height: 600px;
+}
+
+.link {
+  float: left;
+}
+
+.twitter {
+  float: right;
+}

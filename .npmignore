@@ -1,12 +1,10 @@
 .idea
 .vscode
 node_modules
-src/**/*.js
 **/*.js.map
 typings
-dist
-build
 coverage
 ts-out
 npm-debug.log
 debug.log
+src

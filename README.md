@@ -1,17 +1,26 @@
-#rangen
+# rangen
 
 [![npm version](https://badge.fury.io/js/rangen.svg)](http://badge.fury.io/js/rangen)
+[![Build Status](https://travis-ci.org/otelnov/rangen.svg?branch=master)](https://travis-ci.org/otelnov/rangen)
+[![codecov](https://codecov.io/gh/otelnov/rangen/branch/development/graph/badge.svg)](https://codecov.io/gh/otelnov/rangen)
+[![Dependency Status](https://david-dm.org/otelnov/rangen.svg)](https://david-dm.org/otelnov/rangen)
 
-RanGen - module to generate different type of data.
+[![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/guide/styleguide)
+
+RanGen is a library for generating different types of data.
 
 ## Features
 
-* [Generate random id](https://github.com/otelnov/rangen#id)
-* [Generate random number](https://github.com/otelnov/rangen#number)
-* [Get random user from randomuser.me](https://github.com/otelnov/rangen#user)
-* [Get images from 500px](https://github.com/otelnov/rangen#image)
-* [Generate lorem ipsum](https://github.com/otelnov/rangen#lorem-ipsum-text)
-* [Create custom thumbnails](https://github.com/otelnov/rangen#thumbnails-browser-only)
+* [Generate random id](https://github.com/otelnov/rangen#id-params-object--number-)
+* [Generate random integer](https://github.com/otelnov/rangen#num-min-number-max-number-)
+* [Generate random float](https://github.com/otelnov/rangen#float-min-number-max-number-fixed-number-str-boolean-)
+* [Generate random boolean](https://github.com/otelnov/rangen#booltrueprobability-number)
+* [Get random array element](https://github.com/otelnov/rangen#random-array-any-)
+* [Generate random user](https://github.com/otelnov/rangen#user-params-userparams-)
+* [Get images from 500px](https://github.com/otelnov/rangen#image-params-imageparams-promise)
+* [Generate lorem ipsum](https://github.com/otelnov/rangen#lorem-params-loremparams--number-)
+* [Create custom thumbnails](https://github.com/otelnov/rangen#thumb-params-thumbparams-)
+* [Generate github-like avatar](https://github.com/otelnov/rangen#avatar-params-avatarparams-)
 
 ## Demo
 
@@ -24,15 +33,10 @@ Using npm:
 $ npm install rangen
 ```
 
-Using bower:
-```
-$ bower install rangen
-```
-
 ## Usage
-Node.js (browserify, webpack, etc...):
+Node.js
 ```javascript
-var rg = require('rangen');
+const rg = require('rangen');
 rg.id(); // RhyDMHO
 ```
 Browser:
@@ -42,7 +46,7 @@ Browser:
   <head lang="en">
     <meta charset="UTF-8">
     <title>rangen</title>
-    <script src="bower_components/rangen/rangen.js"></script>
+    <script src="build/rangen.bundle.js"></script>
   </head>
   <body>
     <script>
@@ -52,6 +56,12 @@ Browser:
 </html>
 
 ```
+Typescript
+```javascript
+import { id } from 'rangen';
+
+id(); // RhyDMHO
+```
 ## Methods
 
 
@@ -59,28 +69,30 @@ Browser:
 
 
 
-### id
-Generate random string, using one of the character set listed below. Own set can be also provided as third parameter.
-
-```javascript
-var id = rg.id(length, charset, string); //W6hOC2N
-```
+### id( params?: Object | number )
+Generate random string, using one of the character set listed below or providing your own with `str` key.
 
 Character sets:
 
-1. **n** - '0123456789'
-2. **a** - 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-3. **c** - '_-~!@#$%^&*()|}{?></'
-4. **an** - 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-5. **id** - 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-'
-6. **m** - 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-~!@#$%^&*()|}{?></'
-7. **o** - pass your own string as third parameter
+1. **num** - '0123456789'
+2. **alpha** - 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+3. **sym** - '_-~!@#$%^&*()|}{?></'
+4. **alphanum** - 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+6. **all** - 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-~!@#$%^&*()|}{?></'
 
-| param  | default value |
+```javascript
+import { id } from 'rangen';
+
+const newId = id(); // W6hOC2N
+const password = id({length: 12, charSet: 'all'}); // f5HK7-s$Q2$#
+const _id = id(9); // df9HN5rf3
+```
+
+| params  | default value |
 | :------: | :--------------: |
 | _length_ (optional)  | 7 |
-| _charset_ (optional) | 'id' |
-| _string_ (optional)  | |
+| _charSet_ (optional) | 'alphanum' |
+| _str_ (optional)  | |
 
 
 
@@ -88,10 +100,12 @@ Character sets:
 
 
 
-### number
+### num( min?: number, max?: number )
 Generate random number in specific range.
 ```javascript
-var num = rg.num(min, max); //864
+import { num } from 'rangen';
+
+const newNum = num(); // 864
 ```
 
 | param  | default value |
@@ -102,20 +116,59 @@ var num = rg.num(min, max); //864
 
 
 
-
-### bool
-Return random boolean value (true/false).
+### float( min?: number, max?: number, fixed?: number, str?: boolean )
+Generate random floating-point number in specific range.
 ```javascript
-var bool = rg.bool(); //true
+import { float } from 'rangen';
+
+float(); // 0.9529138279087489
+
+float(
+  4, // from
+  5, // to
+  3, // round to a set number of decimal places,
+  true // return string (if you want to keep 00 e.g.)
+);
+// '4.830'
 ```
 
+| param  | default value |
+| :------: | :--------------: |
+| _min_ (optional) | 0 |
+| _max_ (optional) | 1 |
+| _fixed_ (optional) |  |
+| _str_ (optional) | false |
 
 
 
-### random
+
+
+### bool( trueProbability?: number )
+Return random boolean value ( true / false ).
+```javascript
+import { bool } from 'rangen';
+
+const boolean = bool(); //true
+
+```
+
+trueProbability is an optional param if you want to control probability of returned value.
+
+bool(0) will never return true
+
+bool(100) will always return true
+
+bool(30) will return true in about 30% of cases...
+
+
+
+
+### random( array: any[] )
 Get random array element.
 ```javascript
-var randomFruit = rg.random(['banana', 'apple', 'orange']); //apple
+import { random } from 'rangen';
+
+const randomFruit = random(['banana', 'apple', 'orange']); // apple
 ```
 
 
@@ -123,125 +176,75 @@ var randomFruit = rg.random(['banana', 'apple', 'orange']); //apple
 
 
 
-### user
-Generate random user data using https://randomuser.me
+### user( params?: UserParams )
+Generate random user data
 ```javascript
-rg.user(params, cb);
-```
+import { user } from 'rangen';
 
-Can take a callback:
-```javascript
-rg.user(function(err, user){
-  if(!err){
-    console.log(user);
-  }
-});
-```
-
-Or return promise:
-```javascript
-rg.user()
-  .then(function (response) {
-    console.log(response)
-  })
-  .catch(function (response) {
-    console.log(response)
-  });
+const testUser = user();
 ```
 
 The following parameters can be passed:
 
 ```javascript
-var params = {
-  count: 5, // number of users that should be generated (1 - 100). Default - 1
-  gender: 'male' // gender of users ('male', 'female'). Random by default.
+UserParams {
+  count?: number; // default 1
+  gender?: 'male' | 'female' | 'any'; // default any
+  minAge?: number; // default 18
+  maxAge?: number; // default 55
 }
-```
-
-First argument can be an integer, if you need to pass count only
-```javascript
-rg.user(5, cb);
 ```
 
 Results:
 ```javascript
-[{
-  "user": {
+[
+  {
     "gender": "male",
-    "name": {"title": "mr", "first": "joaquin", "last": "benitez"},
-    "location": {"street": "3725 calle de Ángel garcía", "city": "sevilla", "state": "país vasco", "zip": "70927"},
-    "email": "joaquin.benitez47@example.com",
-    "username": "brownrabbit250",
-    "password": "robert",
-    "salt": "8Bos5xJa",
-    "md5": "dd502a8586540bfa95c1fa08a04270ca",
-    "sha1": "a0f29e6c75cc27ea6afe54bcf1b003679bb33e5c",
-    "sha256": "e0f7cc8b4ca165cb15e1d71c92c8f96e0d18d1c537d0cf720eb90762a2851b03",
-    "registered": "1143822952",
-    "dob": "558130886",
-    "phone": "956-784-995",
-    "cell": "688-607-191",
-    "DNI": "02142296-Z",
-    "picture": {
-      "large": "http://api.randomuser.me/portraits/men/94.jpg",
-      "medium": "http://api.randomuser.me/portraits/med/men/94.jpg",
-      "thumbnail": "http://api.randomuser.me/portraits/thumb/men/94.jpg"
+    "name": {
+      "title": "mr",
+      "first": "Jerome",
+      "last": "Guzman"
     },
-    "version": "0.6",
-    "nationality": "ES"
-  }, "seed": "0ef2a0462d7044a301"
-}, ...]
-
-```
-
-
-
-
-
-
-
-### image
-Generate set of photos provided by https://500px.com.
-Photos are copyrighted! For reference only. Check [500px terms](https://500px.com/terms) before using.
-
-```javascript
-rg.image(params, cb);
-```
-
-Can take a callback:
-```javascript
-rg.image(function(err, images){
-  if(!err){
-    console.log(images);
+    "email": "jerome.guzman@example.com",
+    "age": 52,
+    "dob": "1965-03-06T22:00:00.000Z",
+    "registered": "2017-04-27T10:34:22.885Z",
+    "phone": "801-345-7850",
+    "id": "IXvQ2rg"
   }
-});
+]
+
 ```
 
-Or return promise:
+
+
+
+
+
+
+### image( params?: ImageParams ):Promise
+Generate set of photos provided by https://500px.com.
+
+Please check [500px terms](https://500px.com/terms) before using.
+
 ```javascript
-rg.image()
-  .then(function (response) {
-    console.log(response)
-  })
-  .catch(function (response) {
-    console.log(response)
-  });
+import { image } from 'rangen';
+
+image();
 ```
 
-The following optional parameters can be passed:
+
+You can pass native 500px parameters. Check [500px API](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos.md) for more details.
 
 ```javascript
-var params = {
-  key: 'your_key', // 500px consumer_key
+image({
   image_size: 600, // Image size. Default - 2
   rpp: 2, // Number of images. Default - 20
   feature: 'highest_rated', // Photo stream to be retrieved. Default - 'popular'
   only: 'Animals' // Name of the category to return photos from
   // ...
-}
+}).then();
 ```
-
-Params can take native 500px parameters. Check [500px API](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos.md) for more details.
 
 Results:
 
@@ -317,85 +320,99 @@ Results:
 
 
 
-### lorem ipsum (text)
+### lorem( params?: LoremParams | number )
 Generate lorem ipsum text.
-Number of sentences can be set as first argument.
+Takes words number or obj as params.
 
 ```javascript
-rg.text(count, cb);
-rg.lorem(count, cb);
+import { lorem } from 'rangen';
+
+lorem(5); // Ut incididunt elit eu ad.
+lorem({sentences: 2, words: 4}); // ['Consectetur id do nulla.', 'Consectetur dolor id consectetur.']
+lorem({sentences: 3, words: 6}).join(' '); // Ad commodo excepteur sed cillum in. Voluptate sed exercitation cupidatat est ex. Consequat eiusmod voluptate excepteur sunt elit.
 ```
 | param  | default value |
 | :------: | :--------------: |
-| _count_ (optional) | 1 |
-| _cb_ (optional) |  |
-
-
-Can take a callback:
-```javascript
-rg.text(function(err, text){
-  if (!err) {
-    console.log(text);
-  }
-});
-```
-
-Or return promise:
-```javascript
-rg.text()
-  .then(function (response) {
-    console.log(response)
-  })
-  .catch(function (response) {
-    console.log(response)
-  });
-```
-
-Results:
-```javascript
-["I give a strangled cry and wake with a start, sweating and shivering at once. Cradling my damaged cheek in my hand, I remind myself that it was not Clove but Thread who gave me this wound. I wish that Peeta were here to hold me, until I remember I'm not supposed to wish, that anymore."]
-```
+| _words_ (optional) | 10 |
+| _sentences_ (optional) | 1 |
 
 
 
 
 
-### thumbnails (browser only)
+### thumb( params?: ThumbParams )
 Create thumbnails with specific size, color and text.
 ```javascript
-//via arguments
-var imgSrc = rg.thumb(200, 150, 'lightblue', '#fff', 'logo', 30); // data:image/png;base64,iVBORw0KGgo.....
-//via object
-var imgSrc = rg.thumb({
+import { thumb } from 'rangen';
+
+// by default will return base64 hash generated with canvas.
+thumb();
+
+// set svg: true and selector: 'your-css-selector' // to generate svg
+thumb({
+  svg: true,
+  selector: '#thumbnail',
   width: 300,
-  height: 200,
-  background: '#000',
-  color: '#f5f5f5',
-  text: 'Hello rangen',
-  size: 22
+  bgColor: 'red',
+  text: 'rangen',
+  textColor: '#fff'
 });
-// defaults
-var imgSrc = rg.thumb();
+
+
 ```
-![](https://dl.dropboxusercontent.com/u/17828362/logo.png)
-![](https://dl.dropboxusercontent.com/u/17828362/hello_rangen.png)
-![](https://dl.dropboxusercontent.com/u/17828362/default.png)
+![](https://telnov.com/files/rangen/default.png)
+![](https://telnov.com/files/rangen/red.png)
+![](https://telnov.com/files/rangen/logo.png)
 
 | param  | default value |
 | :------: | :--------------: |
 | _width_ (optional) | 100  |
 | _height_ (optional) | 100 |
-| _background-color_ (optional) | #eee |
-| _color_ (optional) | #555 |
+| _bgColor_ (optional) | #eee |
+| _textColor_ (optional) | #555 |
+| _borderColor_ (optional) | #555 |
 | _text_ (optional) | {width}x{height} |
-| _size_ (optional) | depend on block size |
+| _fontSize_ (optional) | depends on block size |
+| _svg_ (optional) | false |
+| _selector_ (optional) |  |
 
+
+
+
+### avatar( params?: AvatarParams )
+Generate github-like avatars.
+
+```javascript
+import { avatar } from 'rangen';
+
+avatar();
+avatar({ size: 5, colors: ['yellow', 'blue'] });
+```
+
+![](https://telnov.com/files/rangen/ava1.png)
+![](https://telnov.com/files/rangen/ava2.png)
+
+| param  | description | default value |
+| :------: | :-------: | :--------------: |
+| _width_ (optional) | | 300  |
+| _height_ (optional) | | 300 |
+| _size_ (optional) | matrix size | 3 |
+| _colors_ (optional) | | ['#0A7B83', '#2AA876', '#FFD265', '#F19C65', '#CE4D45'] |
 
 
 
 
 ## Todo:
 
-* Code coverage
-* Random color - rgb, hex
-* Random youtube video
+* Update lorem() to generate natural text using sentiment analysis
+* Update avatar() with real faces
+* Add more fields to user data, like location
+* Generate random color
+* Poker cards
+* Random time / date (for now you can use several of random nums)
+
+
+
+## Contributing
+
+Contributions are very much welcome.

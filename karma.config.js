@@ -8,7 +8,7 @@ module.exports = function (config) {
     ],
     singleRun: false,
     browsers: [
-      'Chrome'
+      'ChromeHeadless'
     ],
     frameworks: [
       'jasmine'
