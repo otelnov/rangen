@@ -1,9 +1,10 @@
 <a name="1.0.0"></a>
-# 1.0.0 (2017-08-23)
+# 1.0.0 (2017-08-27)
 
 
 ### Features
 
+* **core:** rewrite lib on typescript, add avatar func ([4fa5a34](https://github.com/otelnov/rangen/commit/4fa5a34))
 * **id:** ts project skeleton and id module ([a6bbfb5](https://github.com/otelnov/rangen/commit/a6bbfb5))
 
 
