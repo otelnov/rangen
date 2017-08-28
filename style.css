@@ -1,11 +1,15 @@
+html {
+  background-color: rgb(226, 135, 126);
+}
+
 body {
   font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-  color: #333;
+  color: #4e4e4e;
 }
 
 .main {
   width: 940px;
-  background: #eee;
+  background: #fff2f2;
   margin: 0 auto;
   padding: 50px;
   text-align: center;
@@ -41,10 +45,14 @@ body {
   text-align: center;
 }
 
-.link{
+.image {
+  height: 600px;
+}
+
+.link {
   float: left;
 }
 
-.twitter{
+.twitter {
   float: right;
 }

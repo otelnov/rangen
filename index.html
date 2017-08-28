@@ -1,54 +1,66 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
   <meta charset="UTF-8">
   <title>rangen</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<div class="main">
-  <div class="header">
-    <h1>Rangen demo page</h1>
+  <div class="main">
 
-    <h3>All stuff below was generated automatically, using
-      <a href="https://github.com/otelnov/rangen" target="_blank">RanGen library</a> by <a
-          href="https://twitter.com/otelnov" target="_blank">@otelnov</a>.
-      <br/><a href onclick="location.reload();">Refresh</a> page to get new data.</h3>
-  </div>
-  <hr/>
-  <h2>Welcome to my blog</h2>
-  <div class="user">
-    <img src="" alt="" class="avatar"/>
+    <div class="header">
+      <h1>Rangen demo page</h1>
 
-    <p class="username"></p>
-
-    <p class="contacts">tel: <span class="phone">loading...</span>, email: <span class="email">loading...</span></p>
-  </div>
-  <div class="content">
-    <div class="articleId">article id - <span class="id">loading...</span></div>
-    <p class="lorem1">loading...</p>
-
-    <div class="imageBlock">
-      <img src="" alt="" class="image"/>
+      <h3>All stuff below was generated using
+        <a href="https://github.com/otelnov/rangen" target="_blank">RanGen library</a>        by <a href="https://twitter.com/otelnov" target="_blank">@otelnov</a>.
+        <br/><a href onclick="location.reload();">Refresh</a> page to get new data.</h3>
     </div>
-    <p class="lorem2">loading...</p>
+    <hr/>
 
-    <img src="" alt="" class="thumb1"/>
-    <img src="" alt="" class="thumb2"/>
-    <img src="" alt="" class="thumb3"/>
+    <h2>Welcome to my blog</h2>
+    <div class="user">
+      <img src="" alt="" class="avatar" />
 
-    <p class="lorem3">loading...</p>
-    <p class="lorem4">loading...</p>
+      <p class="username"></p>
+
+      <p class="contacts">tel: <span class="phone">loading...</span>, email: <span class="email">loading...</span></p>
+    </div>
+
+    <div class="content">
+      <div class="articleId">article id - <span class="id">loading...</span></div>
+      <p class="lorem1">loading...</p>
+
+      <div class="imageBlock">
+        <img src="" alt="" class="image" />
+      </div>
+      <p class="lorem2">loading...</p>
+
+      <p>canvas:</p>
+      <img src="" alt="" class="thumb1" />
+      <img src="" alt="" class="thumb2" />
+      <img src="" alt="" class="thumb3" />
+      <p>svg:</p>
+      <span class="thumb4"></span>
+      <span class="thumb5"></span>
+
+      <p class="lorem3">loading...</p>
+      <p class="lorem4">loading...</p>
+    </div>
+
+    <br/>
+    <hr/>
+    <br/>
+
+    <div class="footer">
+      <a class="link" href="https://github.com/otelnov/rangen">https://github.com/otelnov/rangen</a>
+      <span class="twitter">follow me <a href="https://twitter.com/otelnov" target="_blank">@otelnov</a></span>
+    </div>
+
   </div>
-  <br/>
-  <hr/>
-  <br/>
-  <div class="footer">
-    <a class="link" href="https://github.com/otelnov/rangen">https://github.com/otelnov/rangen</a>
-    <span class="twitter">follow me <a href="https://twitter.com/otelnov" target="_blank">@otelnov</a></span>
-  </div>
-</div>
-<script src="rangen.js"></script>
-<script src="index.js"></script>
+  <script src="build/rangen.bundle.js"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>
