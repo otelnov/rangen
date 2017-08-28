@@ -14,7 +14,7 @@ RanGen is a library for generating different types of data.
 * [Generate random id](https://github.com/otelnov/rangen#id-params-object--number-)
 * [Generate random integer](https://github.com/otelnov/rangen#num-min-number-max-number-)
 * [Generate random float](https://github.com/otelnov/rangen#float-min-number-max-number-fixed-number-str-boolean-)
-* [Generate random boolean](https://github.com/otelnov/rangen#booltrueprobability-number)
+* [Generate random boolean](https://github.com/otelnov/rangen#bool-trueprobability-number-)
 * [Get random array element](https://github.com/otelnov/rangen#random-array-any-)
 * [Generate random user](https://github.com/otelnov/rangen#user-params-userparams-)
 * [Get images from 500px](https://github.com/otelnov/rangen#image-params-imageparams-promise)
