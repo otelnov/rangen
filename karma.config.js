@@ -4,7 +4,8 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-webpack'),
-      require('karma-spec-reporter')
+      require('karma-spec-reporter'),
+      require('karma-coverage-istanbul-reporter')
     ],
     singleRun: false,
     browsers: [
@@ -23,7 +24,13 @@ module.exports = function (config) {
     webpackMiddleware: {
       stats: 'errors-only'
     },
-    reporters: ['spec'],
+    coverageIstanbulReporter: {
+      reports: {
+        html: 'coverage',
+        lcovonly: './coverage/coverage.lcov'
+      }
+    },
+    reporters: ['spec', 'coverage-istanbul'],
     specReporter: {
       maxLogLines: 5,             // limit number of lines logged per test
       suppressErrorSummary: true, // do not print error summary
